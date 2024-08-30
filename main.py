@@ -85,7 +85,20 @@ def ia_easy():
     do_move(m, 'ia')
 
 def ia_medium():
-    pass
+    m = None
+    for i in victory_grid:
+        temp = [grid[i[0]], grid[i[1]], grid[i[2]]]
+        if temp.count('X') == 2 and 'O' not in temp:
+            m = [x for x in temp if str(x).isnumeric()][0]
+            break
+    for i in victory_grid:
+        temp = [grid[i[0]], grid[i[1]], grid[i[2]]]
+        if temp.count('O') == 2 and 'X' not in temp:
+            m = [x for x in temp if str(x).isnumeric()][0]
+            break
+    if m == None:
+        m = choice(list(moves))
+    do_move(m, 'ia')
 
 ia_mode = {
     'fácil': ia_easy,
@@ -133,5 +146,6 @@ def main():
                 show_score()
                 exit()
 
-difficult = 'fácil'
+# fácil / médio
+difficult = 'médio'
 main()
