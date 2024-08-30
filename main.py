@@ -18,7 +18,7 @@ victory_grid = (
 score = {
     'player':0,
     'ia':0,
-    'empate':0
+    'draw':0
     }
 
 def check_victory():
@@ -36,7 +36,7 @@ def create_grid():
 
 def show_grid():
     system('clear')
-    print(f'Dificuldade: {difficult.capitalize()}')
+    print(f'Difficult: {difficult.capitalize()}')
     print()
     for k, v in enumerate(grid):
         if v == k:
@@ -62,7 +62,7 @@ def do_move(m, id):
 def player_move():
     while True:
         try:
-            m = int(input('Sua vez: '))
+            m = int(input('Your turn: '))
         except:
             pass
         else:
@@ -74,10 +74,10 @@ def victory(win):
     global score
     show_grid()
     if win == 'X':
-        print('Player ganhou!')
+        print('Player win!')
         score['player'] += 1
     else:
-        print('IA ganhou!')
+        print('IA win!')
         score['ia'] += 1
 
 def ia_easy():
@@ -101,8 +101,8 @@ def ia_medium():
     do_move(m, 'ia')
 
 ia_mode = {
-    'fácil': ia_easy,
-    'médio': ia_medium
+    'easy': ia_easy,
+    'medium': ia_medium
 }
 
 def game():
@@ -121,17 +121,17 @@ def game():
     else:
         show_grid()
         print('Deu velha!')
-        score['empate'] += 1
+        score['draw'] += 1
 
 def show_score():
     system('clear')
-    print(f'Dificuldade: {difficult.capitalize()}')
+    print(f'Difficult: {difficult.capitalize()}')
     print()
-    print(f'{'Placar':^10}')
+    print(f'{'SCORE':^10}')
     print(f'{'Player':8}: {score['player']}')
     print(f'{'IA':8}: {score['ia']}')
-    if score['empate'] > 0:
-        print(f'{'Empate':8}: {score['empate']}')
+    if score['draw'] > 0:
+        print(f'{'Draw':8}: {score['draw']}')
     print()
 
 def main():
@@ -139,13 +139,13 @@ def main():
         create_grid()
         game()
         while True:
-            opt = input('Deseja jogar novamente? [s/n] ').lower()
-            if opt == 's':
+            opt = input('Do you want to play again? [y/n] ').lower()
+            if opt == 'y':
                 break
             elif opt == 'n':
                 show_score()
                 exit()
 
-# fácil / médio
-difficult = 'médio'
+# easy / medium
+difficult = 'medium'
 main()
