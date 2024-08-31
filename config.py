@@ -1,4 +1,3 @@
-# Variáveis globais
 symbol_1 = 'X'
 symbol_2 = 'O'
 grid = []

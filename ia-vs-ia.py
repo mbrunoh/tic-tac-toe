@@ -1,6 +1,6 @@
 from random import randint
 from os import system
-from ia_mode import ia_easy, ia_medium, ia_hard, ia_immortal
+from ia_mode import ia_easy, ia_medium, ia_hard, ia_immortal, player
 from config import *
 
 score = [0, 0, 0]
@@ -21,6 +21,7 @@ def create_grid():
         moves.add(i)
 
 def show_grid():
+    system('clear')
     print(f'{COLOR_IA_1} {difficult_ia_1} {COLOR_RESET} vs {COLOR_IA_2} {difficult_ia_2} {COLOR_RESET}')
     print()
     for k, v in enumerate(grid):
@@ -43,6 +44,9 @@ def do_move(m, symbol):
 
 def victory(win):
     global score
+    show_grid()
+    print(f'{win} win!')
+    input()
     if win == 'X':
         score[0] += 1
     else:
@@ -52,7 +56,8 @@ ia_mode = {
     'easy': ia_easy.ia_easy,
     'medium': ia_medium.ia_medium,
     'hard': ia_hard.ia_hard,
-    'immortal': ia_immortal.ia_immortal
+    'immortal': ia_immortal.ia_immortal,
+    'player': player.player
 }
 
 def game():
@@ -93,11 +98,11 @@ def main():
         qtd_games -= 1
     show_score()
 
-# easy / medium / hard / immortal
-difficult_ia_1 = 'medium'
-difficult_ia_2 = 'hard'
+# easy / medium / hard / immortal / player
+difficult_ia_1 = 'player'
+difficult_ia_2 = 'medium'
 
 delay = 0
-qtd_games = 1000
+qtd_games = 5
 
 main()
