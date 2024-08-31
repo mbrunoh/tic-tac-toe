@@ -1,5 +1,4 @@
-from random import randint, choice
-from time import sleep
+from random import randint
 from os import system
 from ia_mode import ia_easy, ia_medium, ia_hard, ia_immortal
 from config import *
@@ -95,10 +94,10 @@ def main():
     show_score()
 
 # easy / medium / hard / immortal
-difficult_ia_1 = 'easy'
-difficult_ia_2 = 'immortal'
+difficult_ia_1 = 'medium'
+difficult_ia_2 = 'hard'
 
 delay = 0
-qtd_games = 100
+qtd_games = 1000
 
 main()

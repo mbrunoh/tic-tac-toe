@@ -1,7 +1,7 @@
 import sys
 from os.path import dirname, abspath
 from random import choice
-from config import *
+from config import victory_grid, grid, moves
 
 sys.path.append(dirname(dirname(abspath(__file__))))
 
