@@ -22,7 +22,7 @@ def create_grid():
 
 def show_grid():
     system('clear')
-    print(f'{COLOR_IA_1} {difficult_ia_1} {COLOR_RESET} vs {COLOR_IA_2} {difficult_ia_2} {COLOR_RESET}')
+    print(f'{COLOR_IA_1} {difficult_ia_1.capitalize()} {COLOR_RESET} vs {COLOR_IA_2} {difficult_ia_2.capitalize()} {COLOR_RESET}')
     print()
     for k, v in enumerate(grid):
         if v == k:
@@ -46,7 +46,6 @@ def victory(win):
     global score
     show_grid()
     print(f'{win} win!')
-    input()
     if win == 'X':
         score[0] += 1
     else:
@@ -99,10 +98,10 @@ def main():
     show_score()
 
 # easy / medium / hard / immortal / player
-difficult_ia_1 = 'player'
-difficult_ia_2 = 'medium'
+difficult_ia_1 = 'immortal'
+difficult_ia_2 = 'player'
 
 delay = 0
-qtd_games = 5
+qtd_games = 100
 
 main()
